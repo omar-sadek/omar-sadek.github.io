@@ -171,6 +171,7 @@ export const projects: Project[] = [
     description:
       "An arcade game designed for modern arcade machines, seamlessly blending platformer gameplay with a diverse range of mini-games.",
     tech: ["Unity", "C#", "Arcade", "Gameplay"],
+    href: "https://www.youtube.com/watch?v=06mM31BbO78",
   },
   {
     title: "Bubonic",
@@ -178,6 +179,7 @@ export const projects: Project[] = [
     description:
       "A pixel-art platformer that challenges players with complex environmental puzzles.",
     tech: ["Unity", "C#", "Pixel Art", "Puzzle"],
+    href: "https://omarsadek.itch.io/bubonic",
   },
   {
     title: "SkyQuest",
@@ -185,6 +187,7 @@ export const projects: Project[] = [
     description:
       "An RPG prototype showcasing the integration of popular RPG systems in a comprehensive gaming concept.",
     tech: ["Unity", "C#", "RPG Systems"],
+    href: "https://www.youtube.com/watch?v=9a5_NTdqpmY",
   },
 ];
 
