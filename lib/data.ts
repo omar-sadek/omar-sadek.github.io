@@ -90,7 +90,7 @@ export const profile: Profile = {
     "a Graphics Tinkerer",
   ],
   heroSubtitle: "Let's craft something great together",
-  heroChips: ["5+ Years Experience", "Gameplay Programmer", "Immersive Tech"],
+  heroChips: ["6+ Years Experience", "Gameplay Programmer", "Immersive Tech"],
   heroSkillsLabel: "Building gameplay, graphics, and immersive experiences",
   heroSkills: [
     "Unity",
