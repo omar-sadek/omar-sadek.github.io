@@ -231,9 +231,9 @@ export const articles: Article[] = [
 ];
 
 export const skills: Skill[] = [
-  { name: "C#", level: 85 },
+  { name: "C#", level: 100 },
   { name: "C++", level: 65 },
-  { name: "JavaScript", level: 40 },
+  { name: "JavaScript", level: 50 },
   { name: "Unity", level: 90 },
   { name: "Plastic SCM", level: 90 },
   { name: "Git", level: 90 },
@@ -241,7 +241,7 @@ export const skills: Skill[] = [
 ];
 
 export const languages: Skill[] = [
-  { name: "English", level: 80 },
+  { name: "English", level: 90 },
   { name: "Arabic", level: 100 },
 ];
 

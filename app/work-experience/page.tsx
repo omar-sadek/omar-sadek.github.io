@@ -4,6 +4,7 @@ import { experience } from "@/lib/data";
 import { ExperienceCard } from "@/components/ExperienceCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ArrowRightIcon } from "@/components/Icons";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Work Experience",
@@ -14,22 +15,26 @@ export const metadata: Metadata = {
 export default function WorkExperiencePage() {
   return (
     <section className="container-page pt-16 pb-12">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors mb-8"
-      >
-        <ArrowRightIcon className="rotate-180" /> Back to Home
-      </Link>
+      <Reveal>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors mb-8"
+        >
+          <ArrowRightIcon className="rotate-180" /> Back to Home
+        </Link>
 
-      <SectionHeader
-        eyebrow="Career"
-        title="Work Experience"
-        description="A timeline of the teams I've worked with — building gameplay, graphics, build tools, and immersive systems across games and beyond."
-      />
+        <SectionHeader
+          eyebrow="Career"
+          title="Work Experience"
+          description="A timeline of the teams I've worked with — building gameplay, graphics, build tools, and immersive systems across games and beyond."
+        />
+      </Reveal>
 
       <div className="grid gap-5">
-        {experience.map((item) => (
-          <ExperienceCard key={item.company} item={item} />
+        {experience.map((item, i) => (
+          <Reveal key={item.company} delay={i * 120}>
+            <ExperienceCard item={item} />
+          </Reveal>
         ))}
       </div>
     </section>

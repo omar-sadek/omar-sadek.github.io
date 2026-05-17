@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="antialiased min-h-screen flex flex-col">
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 page-transition">{children}</main>
         <Footer />
       </body>
     </html>

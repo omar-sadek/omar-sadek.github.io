@@ -71,9 +71,10 @@ a {
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   transition:
-    border-color 200ms ease,
-    transform 200ms ease,
-    background-color 200ms ease;
+    border-color 300ms ease,
+    transform 300ms ease,
+    background-color 300ms ease,
+    box-shadow 300ms ease;
 }
 
 @utility card-surface-hover {
@@ -81,13 +82,16 @@ a {
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   transition:
-    border-color 200ms ease,
-    transform 200ms ease,
-    background-color 200ms ease;
+    border-color 300ms ease,
+    transform 300ms ease,
+    background-color 300ms ease,
+    box-shadow 300ms ease;
 }
 .card-surface-hover:hover {
   border-color: var(--color-border-strong);
   background-color: var(--color-surface-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.4);
 }
 
 @utility tech-pill {
@@ -187,6 +191,21 @@ a {
 
 .animate-fade-up {
   animation: fade-up 600ms ease-out both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: page-enter 500ms ease both;
 }
 
 @keyframes caret-blink {

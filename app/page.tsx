@@ -10,6 +10,7 @@ import { ExperienceCard } from "@/components/ExperienceCard";
 import { ProjectCard } from "@/components/ProjectCard";
 import { RepositoryCard } from "@/components/RepositoryCard";
 import { TypingText } from "@/components/TypingText";
+import { Reveal } from "@/components/Reveal";
 import {
   ArrowRightIcon,
   GamepadIcon,
@@ -75,92 +76,110 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container-page pb-12">
-        <div className="flex flex-col items-center text-center">
-          <p className="font-mono text-sm sm:text-base text-[color:var(--color-text-muted)] inline-flex items-center gap-2">
-            <GamepadIcon className="text-[color:var(--color-accent)]" />
-            {profile.heroSkillsLabel}
-          </p>
-          <div className="mt-5 flex flex-wrap gap-2 justify-center max-w-2xl">
-            {profile.heroSkills.map((skill) => (
-              <span key={skill} className="info-chip">
-                {skill}
-              </span>
-            ))}
+      <Reveal direction="up" delay={200}>
+        <section className="container-page pb-12">
+          <div className="flex flex-col items-center text-center">
+            <p className="font-mono text-sm sm:text-base text-[color:var(--color-text-muted)] inline-flex items-center gap-2">
+              <GamepadIcon className="text-[color:var(--color-accent)]" />
+              {profile.heroSkillsLabel}
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2 justify-center max-w-2xl">
+              {profile.heroSkills.map((skill) => (
+                <span key={skill} className="info-chip">
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       <section className="container-page section-y">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p className="eyebrow mb-2">Recent Work</p>
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-              Latest Experience
-            </h2>
+        <Reveal>
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="eyebrow mb-2">Recent Work</p>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                Latest Experience
+              </h2>
+            </div>
+            <Link
+              href="/work-experience"
+              className="hidden sm:inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
+            >
+              View all <ArrowRightIcon />
+            </Link>
           </div>
-          <Link
-            href="/work-experience"
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
-          >
-            View all <ArrowRightIcon />
-          </Link>
-        </div>
+        </Reveal>
         <div className="grid gap-5">
-          {latestExperience.map((item) => (
-            <ExperienceCard key={item.company} item={item} />
+          {latestExperience.map((item, i) => (
+            <Reveal key={item.company} delay={i * 120}>
+              <ExperienceCard item={item} />
+            </Reveal>
           ))}
         </div>
-        <div className="mt-6 sm:hidden">
-          <Link
-            href="/work-experience"
-            className="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
-          >
-            View all experience <ArrowRightIcon />
-          </Link>
-        </div>
+        <Reveal delay={240}>
+          <div className="mt-6 sm:hidden">
+            <Link
+              href="/work-experience"
+              className="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
+            >
+              View all experience <ArrowRightIcon />
+            </Link>
+          </div>
+        </Reveal>
       </section>
 
       <section className="container-page section-y">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p className="eyebrow mb-2">Selected</p>
+        <Reveal>
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="eyebrow mb-2">Selected</p>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
+                Featured Projects
+              </h2>
+            </div>
+            <Link
+              href="/projects"
+              className="hidden sm:inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
+            >
+              View all <ArrowRightIcon />
+            </Link>
+          </div>
+        </Reveal>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {latestProjects.map((project, i) => (
+            <Reveal key={project.title} delay={i * 120}>
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={360}>
+          <div className="mt-6 sm:hidden">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
+            >
+              View all projects <ArrowRightIcon />
+            </Link>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="container-page section-y">
+        <Reveal>
+          <div className="mb-10">
+            <p className="eyebrow mb-2">Open Source & Side Work</p>
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-              Featured Projects
+              Repositories
             </h2>
           </div>
-          <Link
-            href="/projects"
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
-          >
-            View all <ArrowRightIcon />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {latestProjects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
-        </div>
-        <div className="mt-6 sm:hidden">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-1.5 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--color-accent)] transition-colors"
-          >
-            View all projects <ArrowRightIcon />
-          </Link>
-        </div>
-      </section>
-
-      <section className="container-page section-y">
-        <div className="mb-10">
-          <p className="eyebrow mb-2">Open Source & Side Work</p>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            Repositories
-          </h2>
-        </div>
+        </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {latestRepos.map((repo) => (
-            <RepositoryCard key={repo.title} item={repo} />
+          {latestRepos.map((repo, i) => (
+            <Reveal key={repo.title} delay={i * 120}>
+              <RepositoryCard item={repo} />
+            </Reveal>
           ))}
         </div>
       </section>
