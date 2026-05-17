@@ -71,10 +71,10 @@ a {
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   transition:
-    border-color 300ms ease,
-    transform 300ms ease,
-    background-color 300ms ease,
-    box-shadow 300ms ease;
+    border-color 500ms ease,
+    transform 500ms ease,
+    background-color 500ms ease,
+    box-shadow 500ms ease;
 }
 
 @utility card-surface-hover {
@@ -82,10 +82,10 @@ a {
   border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   transition:
-    border-color 300ms ease,
-    transform 300ms ease,
-    background-color 300ms ease,
-    box-shadow 300ms ease;
+    border-color 500ms ease,
+    transform 500ms ease,
+    background-color 500ms ease,
+    box-shadow 500ms ease;
 }
 .card-surface-hover:hover {
   border-color: var(--color-border-strong);
@@ -127,8 +127,8 @@ a {
   border: 1px solid var(--color-border-strong);
   color: var(--color-text);
   transition:
-    border-color 200ms ease,
-    color 200ms ease;
+    border-color 500ms ease,
+    color 500ms ease;
 }
 .info-chip:hover {
   border-color: var(--color-accent);
@@ -148,9 +148,9 @@ a {
   color: #04181d;
   border: 1px solid var(--color-accent);
   transition:
-    transform 200ms ease,
-    box-shadow 200ms ease,
-    opacity 200ms ease;
+    transform 500ms ease,
+    box-shadow 500ms ease,
+    opacity 500ms ease;
 }
 .btn-accent:hover {
   transform: translateY(-1px);
@@ -170,8 +170,8 @@ a {
   color: var(--color-accent);
   border: 1px solid var(--color-accent);
   transition:
-    background-color 200ms ease,
-    transform 200ms ease;
+    background-color 500ms ease,
+    transform 500ms ease;
 }
 .btn-outline:hover {
   background-color: rgba(34, 211, 238, 0.08);
