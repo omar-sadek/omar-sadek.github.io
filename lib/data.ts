@@ -107,7 +107,7 @@ export const experience: Experience[] = [
   {
     company: "Genesis Creations",
     role: "Senior Unity Developer",
-    location: "Remote",
+    location: "Hybrid",
     period: "FEB 2026 — PRESENT",
     summary:
       "Designing and shipping immersive experiences across a wide range of domains, including medical, industrial, general training, and digital twins.",
@@ -122,7 +122,7 @@ export const experience: Experience[] = [
   {
     company: "Largelabs",
     role: "Gameplay Engineer",
-    location: "Remote",
+    location: "On-site",
     period: "2021 — FEB 2026",
     url: "http://largelabs.fr",
     summary:
@@ -137,7 +137,7 @@ export const experience: Experience[] = [
   {
     company: "412labs",
     role: "VR / AR Developer",
-    location: "Remote",
+    location: "Hyprid",
     period: "2020 — 2021",
     url: "https://412labs.com/",
     summary:
