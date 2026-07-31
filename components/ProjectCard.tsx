@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Project } from "@/lib/data";
 import { TechList } from "./TechTag";
 import { ArrowRightIcon } from "./Icons";
@@ -8,13 +9,19 @@ type Props = {
 };
 
 export function ProjectCard({ project }: Props) {
+  const cardClass = "group block card-surface-hover overflow-hidden h-full";
+
   const Wrapper = ({ children }: { children: React.ReactNode }) =>
-    project.href ? (
+    project.slug ? (
+      <Link href={`/projects/${project.slug}`} className={cardClass}>
+        {children}
+      </Link>
+    ) : project.href ? (
       <a
         href={project.href}
         target="_blank"
         rel="noreferrer"
-        className="group block card-surface-hover overflow-hidden h-full"
+        className={cardClass}
       >
         {children}
       </a>
@@ -41,13 +48,18 @@ export function ProjectCard({ project }: Props) {
           <h3 className="text-lg font-semibold tracking-tight">
             {project.title}
           </h3>
-          {project.href ? (
+          {project.slug || project.href ? (
             <ArrowRightIcon className="mt-1 text-[color:var(--color-text-dim)] transition-transform group-hover:translate-x-1 group-hover:text-[color:var(--color-accent)]" />
           ) : null}
         </div>
         <p className="mt-2 text-sm text-[color:var(--color-text-muted)] leading-relaxed">
           {project.description}
         </p>
+        {project.slug ? (
+          <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-[color:var(--color-accent)] opacity-0 -translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+            View details <ArrowRightIcon className="w-3.5 h-3.5" />
+          </span>
+        ) : null}
         {project.tech.length > 0 ? (
           <div className="mt-4">
             <TechList items={project.tech} />

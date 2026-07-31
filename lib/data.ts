@@ -34,12 +34,47 @@ export type Experience = {
   tech: string[];
 };
 
+export type GalleryItem = {
+  src: string;
+  caption?: string;
+};
+
+export type ProjectVideo = {
+  /** Self-hosted mp4 path. Use this or youtubeId, not both. */
+  src?: string;
+  youtubeId?: string;
+  poster?: string;
+  caption?: string;
+};
+
+export type Credit = {
+  role?: string;
+  people: string;
+};
+
 export type Project = {
   title: string;
+  /** Card thumbnail. Also used as the detail-page hero unless heroImage is set. */
   image: string;
+  heroImage?: string;
   description: string;
   tech: string[];
   href?: string;
+  /** Presence of a slug gives the project its own detail page. */
+  slug?: string;
+  subtitle?: string;
+  year?: string;
+  role?: string;
+  overview?: string[];
+  highlights?: string[];
+  /** Width / height of the hero image. Defaults to 2.1 (21:10). */
+  heroAspectRatio?: number;
+  gallery?: GalleryItem[];
+  video?: ProjectVideo;
+  credits?: Credit[];
+  creditsNote?: string;
+  /** Label for the external link when shown as a button on the detail page. */
+  externalLabel?: string;
 };
 
 export type Repository = {
@@ -166,28 +201,201 @@ export const experience: Experience[] = [
 
 export const projects: Project[] = [
   {
+    title: "Sterile Environment VR Training",
+    slug: "sterile-environment-training",
+    image: "/projects/sterile-environment-training/hero.jpg",
+    subtitle: "VR training platform for sterile procedure protocols",
+    year: "2026",
+    role: "Unity / VR Developer",
+    description:
+      "A VR training platform for sterile-environment protocols, built around hands-on procedural simulation with real-time validation.",
+    tech: ["Unity", "C#", "VR", "Hand Tracking", "Training Systems"],
+    overview: [
+      "An immersive VR training experience where users practice sterile procedures inside realistic virtual scenarios. The platform walks trainees through each protocol step by step and validates their actions as they perform them, so mistakes surface in the moment rather than at the end of a session.",
+      "Training is structured as sequential modules with interactive checkpoints, backed by an assessment layer that scores procedural accuracy. The systems underneath are built to be modular, so new procedures can be authored on top of the same interaction and validation framework without reworking the core.",
+    ],
+    highlights: [
+      "Realistic virtual sterile environment with physically simulated objects",
+      "Step-by-step procedure guidance with real-time protocol validation",
+      "Hand tracking and natural interaction mechanics tuned for VR comfort",
+      "Modular training objectives that orchestrate multi-step procedures",
+      "Assessment and feedback systems that score procedural compliance",
+      "Scalable architecture supporting additional procedure types",
+      "Performance optimized for standalone VR headsets",
+    ],
+    gallery: [
+      {
+        src: "/projects/sterile-environment-training/cleaning.png",
+        caption: "Guided cleaning procedure module",
+      },
+      {
+        src: "/projects/sterile-environment-training/mopping.png",
+        caption: "Mopping procedure with step validation",
+      },
+      {
+        src: "/projects/sterile-environment-training/hand-hygiene.jpg",
+        caption: "Hand hygiene protocol station",
+      },
+    ],
+    video: {
+      src: "/projects/sterile-environment-training/demo.mp4",
+      poster: "/projects/sterile-environment-training/hero.jpg",
+      caption: "Walkthrough of a training session",
+    },
+  },
+  {
     title: "Safety Quest",
+    slug: "safety-quest",
     image: "/safetyquest.jpg",
+    subtitle:
+      "A pixel-art arcade platformer built entirely in-house — from the physics engine up",
+    year: "2021 — 2026",
+    role: "Gameplay Engineer",
     description:
       "An arcade game designed for modern arcade machines, seamlessly blending platformer gameplay with a diverse range of mini-games.",
-    tech: ["Unity", "C#", "Arcade", "Gameplay"],
-    href: "https://www.youtube.com/watch?v=06mM31BbO78",
+    tech: [
+      "Unity",
+      "C#",
+      "Arcade",
+      "Pixel Art",
+      "Custom Physics",
+      "Gameplay Systems",
+    ],
+    overview: [
+      "Safety Quest is the project I spent the longest stretch of my career on — more than four years, from early production through to the point where it became a product the studio could package and resell to clients. It's a pixel-art arcade game spanning entire worlds of platformer levels alongside a large set of mini-games and modes, with each level and mini-game built around its own distinct mechanic.",
+      "Almost nothing in it came off the shelf. The physics engine, animation system, grid systems, and AI were all built in-house, which meant the gameplay layer and the tech underneath it evolved together over the years. It was designed first for arcade cabinets on desktop hardware, then later ported to the web, and it ships with a leaderboard and a scoring system robust enough to hold up under competitive arcade play.",
+    ],
+    highlights: [
+      "Proprietary 2D physics engine built in-house rather than relying on the stock solution",
+      "Custom animation system driving pixel-art characters and effects",
+      "Grid systems underpinning level construction and mini-game logic",
+      "In-house AI systems for enemies and interactive elements",
+      "Worlds of platformer levels, each built around its own unique mechanic",
+      "A large catalogue of mini-games and modes with distinct rulesets",
+      "Leaderboard and a robust scoring system tuned for arcade competition",
+      "Originally built for arcade cabinets, later ported to run on the web",
+    ],
+    video: {
+      youtubeId: "06mM31BbO78",
+      caption: "Gameplay trailer",
+    },
+  },
+  {
+    title: "KickBeat",
+    slug: "kickbeat",
+    image: "/projects/kickbeat/cover.jpg",
+    heroImage: "/projects/kickbeat/banner.png",
+    heroAspectRatio: 3,
+    subtitle:
+      "A rhythm game about football freestyle, built in 3 days for Score Jam 37",
+    year: "2026",
+    role: "Developer",
+    description:
+      "A rhythm-based football training game where you follow your coach's gestured instructions and land tricks on the beat.",
+    tech: ["Unity", "C#", "Rhythm", "Pixel Art", "WebGL", "Game Jam"],
+    href: "https://omarsadek.itch.io/kickbeat",
+    externalLabel: "Play in browser",
+    overview: [
+      "Follow the coach. Feel the rhythm. Master the tricks. KickBeat is a rhythm-based football training game where your coach demonstrates freestyle tricks through hand gestures and you replicate them at exactly the right moment — on the beat. Watch carefully, time your inputs, and chain perfect moves into combos; miss too many beats and the training session ends.",
+      "Timing is graded across three tiers — Perfect for landing right on the beat, Good for close enough, and Miss for back to basics — which turns the whole session into a push for a cleaner run. It was built in three days for Score Jam 37 and runs directly in the browser.",
+    ],
+    highlights: [
+      "Beat-matched input scored across Perfect, Good, and Miss timing tiers",
+      "Gesture-based instruction that teaches each trick before you perform it",
+      "Combo chaining that rewards stringing perfect hits together",
+      "Endless high-score structure with a fail state on missed beats",
+      "Pixel-art presentation built around readable on-beat feedback",
+      "Runs in the browser via WebGL — no download needed",
+    ],
+    creditsNote:
+      "Audio is royalty-free: 5 Chiptunes (Action) by SubspaceAudio and the Ultimate 2017 16-bit Mini SFX pack, both from OpenGameArt. No generative AI was used for the art, music, or sound effects.",
+    credits: [
+      { role: "Development", people: "Omar Sadek, Hesham Maher" },
+      { role: "Art", people: "Emad Maged" },
+    ],
+    gallery: [
+      { src: "/projects/kickbeat/shot-1.png" },
+      { src: "/projects/kickbeat/shot-2.png" },
+      { src: "/projects/kickbeat/shot-3.png" },
+    ],
   },
   {
     title: "Bubonic",
-    image: "/bubonic.jpg",
+    slug: "bubonic",
+    image: "/projects/bubonic/title.png",
+    heroAspectRatio: 16 / 9,
+    subtitle:
+      "A pixel-art puzzle platformer made in 3 days — and the game jam's winner",
+    year: "2021",
+    role: "Developer & Level Designer",
     description:
       "A pixel-art platformer that challenges players with complex environmental puzzles.",
-    tech: ["Unity", "C#", "Pixel Art", "Puzzle"],
+    tech: ["Unity", "C#", "Pixel Art", "Puzzle", "Game Jam"],
     href: "https://omarsadek.itch.io/bubonic",
+    externalLabel: "Play on itch.io",
+    overview: [
+      "In the early 1300s, doom marches out of lands unknown in the form of rats. An unnamed hero throws his lifelong ambitions behind his back to face what the locals came to call the Black Death. Bubonic is a pixel-art puzzle platformer built around that premise — every level hides a pattern that rewards reading the room over raw reflexes.",
+      "We built it in three days for a game jam, and it won. Everything in it was made by the team during the jam: the code, the pixel art, the level design, and the original soundtrack and sound effects. No AI-generated content, no third-party plugins, and no external art assets — the only outside element is a single font, Pixellari.",
+    ],
+    highlights: [
+      "Built from scratch in 3 days and won the game jam",
+      "Environmental puzzles with a solvable pattern in every level",
+      "Hand-made pixel art and animation, produced during the jam",
+      "Original soundtrack and sound effects composed by the team",
+      "No third-party plugins, art packs, or AI-generated assets",
+      "Level design built to teach its mechanics without tutorials",
+    ],
+    credits: [
+      { role: "Development", people: "Omar Sadek, Youssef Abusamra" },
+      { role: "Art", people: "Emad Maged" },
+      { role: "OST & SFX", people: "Youssef Abusamra" },
+      { role: "Level Design", people: "Omar Sadek" },
+    ],
+    gallery: [
+      { src: "/projects/bubonic/shot-3.jpg" },
+      { src: "/projects/bubonic/shot-4.jpg" },
+      { src: "/projects/bubonic/shot-5.jpg" },
+      { src: "/projects/bubonic/shot-6.jpg" },
+    ],
+    video: {
+      youtubeId: "dMLsKEJRshQ",
+      caption: "Gameplay trailer",
+    },
   },
   {
     title: "SkyQuest",
+    slug: "skyquest",
     image: "/skyquest.jpg",
+    subtitle: "My graduation project — a full RPG concept, built from nothing",
+    year: "2021",
+    role: "Gameplay Programmer",
     description:
       "An RPG prototype showcasing the integration of popular RPG systems in a comprehensive gaming concept.",
-    tech: ["Unity", "C#", "RPG Systems"],
-    href: "https://www.youtube.com/watch?v=9a5_NTdqpmY",
+    tech: ["Unity", "C#", "RPG Systems", "NavMesh AI", "Dialogue"],
+    overview: [
+      "SkyQuest was my graduation project — an RPG concept built to prove out how the genre's core systems fit together when you have to write all of them yourself. Rather than assembling a prototype from existing packages, the team built every system in it, so the inventory, AI, dialogue, and combat were all designed to talk to each other from the start.",
+      "Everything in the game is original work by the team. No AI-generated content and no third-party asset packs — the 3D models were created by our 3D artist and the soundtrack was composed by our own musician, with all in-game effects made in-house.",
+    ],
+    highlights: [
+      "Inventory system covering items, equipment, and player state",
+      "AI behaviour driven by Unity's NavMesh for navigation and pursuit",
+      "Dialogue system supporting branching conversations with NPCs",
+      "Combat system integrated with the equipment and stat layers",
+      "All visual effects created in-house by the team",
+      "Original 3D models and an original composed soundtrack",
+    ],
+    creditsNote:
+      "Built with a team who made every model, effect, and track in the game.",
+    credits: [
+      {
+        people:
+          "Youssef Abusamra, Emad Maged, Iyad Mohamed, Hadeer Mahmoud, Heba Magdy",
+      },
+    ],
+    video: {
+      youtubeId: "9a5_NTdqpmY",
+      caption: "Gameplay showcase",
+    },
   },
 ];
 
@@ -205,7 +413,7 @@ export const repositories: Repository[] = [
     image: "/state-flowchart.png",
     description:
       "A straightforward state machine designed for easy Unity integration, simplifying complex logic and enhancing project workflows. Built with flexibility in mind for future feature enhancements and customization.",
-    href: "#",
+    href: "https://github.com/omar-sadek/SimpleStateMachine",
     tech: ["Unity", "C#", "Architecture"],
   },
   {
