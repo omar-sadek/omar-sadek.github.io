@@ -8,7 +8,6 @@
   --color-border: #1f1f24;
   --color-border-strong: #2a2a31;
   --color-accent: #22d3ee;
-  --color-accent-warm: #dbb168;
   --color-accent-soft: #155e6b;
   --color-text: #ededed;
   --color-text-muted: #9ca3af;
@@ -119,7 +118,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-accent-warm);
+  color: var(--color-text-dim);
 }
 
 @utility info-chip {

@@ -98,7 +98,7 @@ export default function AboutPage() {
         <Reveal delay={0}>
           <div className="card-surface p-6 h-full">
             <h3 className="text-sm font-medium mb-1">Education</h3>
-            <span className="block w-10 h-px bg-[color:var(--color-accent-warm)] mb-5" />
+            <span className="block w-10 h-px bg-[color:var(--color-text-dim)] mb-5" />
             {education.map((ed) => (
               <div key={ed.title}>
                 <p className="eyebrow mb-2">{ed.period}</p>
@@ -117,7 +117,7 @@ export default function AboutPage() {
         <Reveal delay={120}>
           <div className="card-surface p-6 lg:col-span-1 h-full">
             <h3 className="text-sm font-medium mb-1">Skills</h3>
-            <span className="block w-10 h-px bg-[color:var(--color-accent-warm)] mb-5" />
+            <span className="block w-10 h-px bg-[color:var(--color-text-dim)] mb-5" />
             <div className="space-y-5">
               {skillGroups.map((group) => (
                 <div key={group.label}>
@@ -134,7 +134,7 @@ export default function AboutPage() {
         <Reveal delay={240}>
           <div className="card-surface p-6 h-full">
             <h3 className="text-sm font-medium mb-1">Languages</h3>
-            <span className="block w-10 h-px bg-[color:var(--color-accent-warm)] mb-5" />
+            <span className="block w-10 h-px bg-[color:var(--color-text-dim)] mb-5" />
             <dl className="space-y-3">
               {languages.map((lang) => (
                 <div
