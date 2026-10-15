@@ -36,9 +36,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params;
-  const project = detailProjects.find((item) => item.slug === slug);
+  const currentIndex = detailProjects.findIndex((item) => item.slug === slug);
+  const project = detailProjects[currentIndex];
 
   if (!project) notFound();
+
+  const previous =
+    currentIndex > 0 ? detailProjects[currentIndex - 1] : undefined;
+  const next =
+    currentIndex < detailProjects.length - 1
+      ? detailProjects[currentIndex + 1]
+      : undefined;
 
   return (
     <article className="container-page pt-16 pb-24">
@@ -248,11 +256,50 @@ export default async function ProjectDetailPage({ params }: Props) {
       ) : null}
 
       <Reveal>
-        <div className="mt-20 pt-10 border-t border-[color:var(--color-border)]">
-          <Link href="/projects" className="btn-outline">
-            <ArrowRightIcon className="rotate-180" /> All projects
-          </Link>
-        </div>
+        <nav
+          aria-label="Project navigation"
+          className="mt-20 pt-10 border-t border-[color:var(--color-border)]"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {previous ? (
+              <Link
+                href={`/projects/${previous.slug}`}
+                className="card-surface-hover p-5 group"
+              >
+                <span className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.14em] text-[color:var(--color-text-dim)]">
+                  <ArrowRightIcon className="w-3.5 h-3.5 rotate-180 transition-transform group-hover:-translate-x-0.5" />
+                  Previous
+                </span>
+                <span className="mt-2 block font-semibold tracking-tight">
+                  {previous.title}
+                </span>
+              </Link>
+            ) : (
+              <span aria-hidden className="hidden sm:block" />
+            )}
+
+            {next ? (
+              <Link
+                href={`/projects/${next.slug}`}
+                className="card-surface-hover p-5 group sm:text-right"
+              >
+                <span className="flex items-center gap-1.5 sm:justify-end text-xs font-mono uppercase tracking-[0.14em] text-[color:var(--color-text-dim)]">
+                  Next
+                  <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
+                <span className="mt-2 block font-semibold tracking-tight">
+                  {next.title}
+                </span>
+              </Link>
+            ) : null}
+          </div>
+
+          <div className="mt-8">
+            <Link href="/projects" className="btn-outline">
+              <ArrowRightIcon className="rotate-180" /> All projects
+            </Link>
+          </div>
+        </nav>
       </Reveal>
     </article>
   );

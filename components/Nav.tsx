@@ -2,13 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navLinks, profile } from "@/lib/data";
 import { CloseIcon, MenuIcon } from "./Icons";
 
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -16,7 +24,10 @@ export function Nav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-[color:var(--color-bg)]/70 border-b border-[color:var(--color-border)]">
+    <header
+      data-scrolled={scrolled || open}
+      className="nav-edge sticky top-0 z-50 backdrop-blur-md bg-[color:var(--color-bg)]/70"
+    >
       <div className="container-page flex h-16 items-center justify-between">
         <Link
           href="/"
