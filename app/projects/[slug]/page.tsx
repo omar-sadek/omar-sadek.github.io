@@ -132,7 +132,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             {project.highlights.map((highlight, i) => (
               <Reveal key={highlight} delay={i * 60}>
                 <div className="card-surface h-full p-5 flex gap-4">
-                  <span className="shrink-0 font-mono text-sm text-[color:var(--color-accent)] pt-0.5">
+                  <span className="shrink-0 font-mono text-sm text-[color:var(--color-accent-warm)] pt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm text-[color:var(--color-text-muted)] leading-relaxed">

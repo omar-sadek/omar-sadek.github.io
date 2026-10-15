@@ -101,9 +101,14 @@ export type Article = {
   href: string;
 };
 
-export type Skill = {
+export type SkillGroup = {
+  label: string;
+  items: string[];
+};
+
+export type Language = {
   name: string;
-  level: number;
+  proficiency: string;
 };
 
 export const profile: Profile = {
@@ -449,19 +454,16 @@ export const articles: Article[] = [
   },
 ];
 
-export const skills: Skill[] = [
-  { name: "C#", level: 100 },
-  { name: "C++", level: 65 },
-  { name: "JavaScript", level: 50 },
-  { name: "Unity", level: 90 },
-  { name: "Plastic SCM", level: 90 },
-  { name: "Git", level: 90 },
-  { name: "Jira", level: 90 },
+export const skillGroups: SkillGroup[] = [
+  { label: "Languages", items: ["C#", "C++", "JavaScript"] },
+  { label: "Engines & Graphics", items: ["Unity", "OpenGL", "Vulkan"] },
+  { label: "Platforms", items: ["VR", "WebGL", "Arcade", "Digital Twin"] },
+  { label: "Tooling", items: ["Git", "Plastic SCM", "Jira"] },
 ];
 
-export const languages: Skill[] = [
-  { name: "English", level: 90 },
-  { name: "Arabic", level: 100 },
+export const languages: Language[] = [
+  { name: "Arabic", proficiency: "Native" },
+  { name: "English", proficiency: "Professional" },
 ];
 
 export const education = [

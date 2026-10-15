@@ -4,9 +4,10 @@ import {
   education,
   languages,
   profile,
-  skills,
+  skillGroups,
 } from "@/lib/data";
 import { SectionHeader } from "@/components/SectionHeader";
+import { TechList } from "@/components/TechTag";
 import { ArrowRightIcon } from "@/components/Icons";
 import { Reveal } from "@/components/Reveal";
 
@@ -14,25 +15,6 @@ export const metadata: Metadata = {
   title: "About",
   description: profile.shortBio,
 };
-
-function SkillBar({ name, level }: { name: string; level: number }) {
-  return (
-    <div>
-      <div className="flex items-center justify-between mb-1.5">
-        <span className="text-sm">{name}</span>
-        <span className="text-xs text-[color:var(--color-text-dim)] font-mono">
-          {level}%
-        </span>
-      </div>
-      <div className="h-1.5 rounded-full bg-[color:var(--color-surface-2)] overflow-hidden">
-        <div
-          className="h-full rounded-full bg-[color:var(--color-accent)] transition-all duration-1000 ease-out"
-          style={{ width: `${level}%` }}
-        />
-      </div>
-    </div>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -116,7 +98,7 @@ export default function AboutPage() {
         <Reveal delay={0}>
           <div className="card-surface p-6 h-full">
             <h3 className="text-sm font-medium mb-1">Education</h3>
-            <span className="block w-10 h-px bg-[color:var(--color-accent)] mb-5" />
+            <span className="block w-10 h-px bg-[color:var(--color-accent-warm)] mb-5" />
             {education.map((ed) => (
               <div key={ed.title}>
                 <p className="eyebrow mb-2">{ed.period}</p>
@@ -135,10 +117,15 @@ export default function AboutPage() {
         <Reveal delay={120}>
           <div className="card-surface p-6 lg:col-span-1 h-full">
             <h3 className="text-sm font-medium mb-1">Skills</h3>
-            <span className="block w-10 h-px bg-[color:var(--color-accent)] mb-5" />
-            <div className="space-y-3.5">
-              {skills.map((skill) => (
-                <SkillBar key={skill.name} {...skill} />
+            <span className="block w-10 h-px bg-[color:var(--color-accent-warm)] mb-5" />
+            <div className="space-y-5">
+              {skillGroups.map((group) => (
+                <div key={group.label}>
+                  <p className="text-xs font-mono uppercase tracking-[0.14em] text-[color:var(--color-text-dim)] mb-2">
+                    {group.label}
+                  </p>
+                  <TechList items={group.items} />
+                </div>
               ))}
             </div>
           </div>
@@ -147,12 +134,20 @@ export default function AboutPage() {
         <Reveal delay={240}>
           <div className="card-surface p-6 h-full">
             <h3 className="text-sm font-medium mb-1">Languages</h3>
-            <span className="block w-10 h-px bg-[color:var(--color-accent)] mb-5" />
-            <div className="space-y-3.5">
+            <span className="block w-10 h-px bg-[color:var(--color-accent-warm)] mb-5" />
+            <dl className="space-y-3">
               {languages.map((lang) => (
-                <SkillBar key={lang.name} {...lang} />
+                <div
+                  key={lang.name}
+                  className="flex items-baseline justify-between gap-4"
+                >
+                  <dt className="text-sm">{lang.name}</dt>
+                  <dd className="text-xs font-mono text-[color:var(--color-text-dim)]">
+                    {lang.proficiency}
+                  </dd>
+                </div>
               ))}
-            </div>
+            </dl>
           </div>
         </Reveal>
       </div>
