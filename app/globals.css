@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0a0a0b;
-  --color-bg-elev: #0e0e10;
-  --color-surface: #111114;
-  --color-surface-2: #16161a;
-  --color-border: #1f1f24;
-  --color-border-strong: #2a2a31;
-  --color-accent: #22d3ee;
-  --color-accent-soft: #155e6b;
+  --color-bg: #11151c;
+  --color-bg-elev: #161c26;
+  --color-surface: #212d40;
+  --color-surface-2: #283449;
+  --color-border: #364156;
+  --color-border-strong: #4a5670;
+  --color-accent: #e8836b;
+  --color-accent-soft: #7d4e57;
   --color-text: #ededed;
   --color-text-muted: #9ca3af;
-  --color-text-dim: #7b828f;
+  --color-text-dim: #97a0b0;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
@@ -39,19 +39,19 @@
     background-image:
       radial-gradient(
         ellipse 80% 50% at 50% -20%,
-        rgba(34, 211, 238, 0.08),
+        rgba(232, 131, 107, 0.08),
         transparent 60%
       ),
       radial-gradient(
         ellipse 60% 40% at 90% 110%,
-        rgba(34, 211, 238, 0.04),
+        rgba(232, 131, 107, 0.04),
         transparent 60%
       );
     background-attachment: fixed;
   }
 
   ::selection {
-    background: rgba(34, 211, 238, 0.25);
+    background: rgba(232, 131, 107, 0.25);
     color: var(--color-text);
   }
 
@@ -151,7 +151,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   background-color: var(--color-accent);
-  color: #04181d;
+  color: #2b1410;
   border: 1px solid var(--color-accent);
   transition:
     transform 180ms ease,
@@ -160,7 +160,7 @@
 }
 .btn-accent:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px -8px rgba(34, 211, 238, 0.45);
+  box-shadow: 0 8px 24px -8px rgba(232, 131, 107, 0.45);
 }
 
 @utility btn-outline {
@@ -180,7 +180,7 @@
     transform 180ms ease;
 }
 .btn-outline:hover {
-  background-color: rgba(34, 211, 238, 0.08);
+  background-color: rgba(232, 131, 107, 0.08);
   transform: translateY(-1px);
 }
 
@@ -238,10 +238,10 @@
 @keyframes avatar-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.35);
+    box-shadow: 0 0 0 0 rgba(232, 131, 107, 0.35);
   }
   50% {
-    box-shadow: 0 0 0 14px rgba(34, 211, 238, 0);
+    box-shadow: 0 0 0 14px rgba(232, 131, 107, 0);
   }
 }
 
