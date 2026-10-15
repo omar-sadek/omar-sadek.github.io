@@ -118,7 +118,7 @@ export const profile: Profile = {
   shortBio:
     "Gameplay programmer with a deep love for engine internals, graphics, and the systems that make virtual worlds feel alive — from arcade titles to industrial-grade VR.",
   longBio:
-    "I'm Omar — a gameplay programmer who enjoys living between game design and low-level tech. My day-to-day moves between gameplay systems, build tools, and graphics, and I take every chance I get to push deeper into engine internals, rendering APIs like OpenGL and Vulkan, and the kind of architecture that keeps a project shipping smoothly. Lately I've been bringing that same curiosity to immersive experiences across medical, industrial, training, and digital-twin domains, but my heart still sits in games and the tech that powers them.",
+    "I'm Omar — a gameplay programmer who enjoys living between game design and low-level tech. My day-to-day moves between gameplay systems, build tools, and graphics, and I take every chance I get to push deeper into engine internals, graphics, and the kind of architecture that keeps a project shipping smoothly. Lately I've been bringing that same curiosity to immersive experiences across medical, industrial, training, and digital-twin domains, but my heart still sits in games and the tech that powers them.",
   location: "Nasr City, Cairo, Egypt",
   email: "omar.sadek11b@gmail.com",
   phone: "+20 106 555 9317",

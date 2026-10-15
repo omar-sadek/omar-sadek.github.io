@@ -39,10 +39,10 @@ export default function AboutPage() {
             <p className="text-base sm:text-lg">{profile.longBio}</p>
             <p>
               On the engineering side, I&apos;m comfortable shipping production
-              Unity with C#, but I keep one foot in C++ and graphics APIs like
-              OpenGL and Vulkan because that&apos;s where the most interesting
-              problems live. Build tools, AI, and rendering pipelines are the
-              work I gravitate to when I get to choose.
+              Unity with C#, but I keep one foot in C++ and graphics because
+              that&apos;s where the most interesting problems live. Build tools,
+              AI, and rendering pipelines are the work I gravitate to when I get
+              to choose.
             </p>
           </div>
         </Reveal>
