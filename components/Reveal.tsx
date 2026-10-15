@@ -29,10 +29,20 @@ export function Reveal({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Reduced motion: show the final state straight away rather than
+    // leaving content at opacity 0 waiting on a scroll it will never get.
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) {
+      setReduced(true);
+      setVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -54,13 +64,17 @@ export function Reveal({
     <div
       ref={ref}
       className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "none" : directionOffset[direction],
-        transition: `opacity ${duration}ms ease, transform ${duration}ms ease`,
-        transitionDelay: `${delay}ms`,
-        willChange: "opacity, transform",
-      }}
+      style={
+        reduced
+          ? undefined
+          : {
+              opacity: visible ? 1 : 0,
+              transform: visible ? "none" : directionOffset[direction],
+              transition: `opacity ${duration}ms ease, transform ${duration}ms ease`,
+              transitionDelay: `${delay}ms`,
+              willChange: "opacity, transform",
+            }
+      }
     >
       {children}
     </div>

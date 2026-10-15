@@ -57,7 +57,7 @@ export function Nav() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-md border border-[color:var(--color-border)] text-[color:var(--color-text)]"
+          className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-md border border-[color:var(--color-border)] text-[color:var(--color-text)]"
         >
           {open ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -71,7 +71,7 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`py-2 text-sm transition-colors ${
+                className={`flex min-h-[44px] items-center text-sm transition-colors ${
                   isActive(link.href)
                     ? "text-[color:var(--color-accent)]"
                     : "text-[color:var(--color-text-muted)]"
@@ -85,7 +85,7 @@ export function Nav() {
               target="_blank"
               rel="noreferrer"
               onClick={() => setOpen(false)}
-              className="py-2 text-sm text-[color:var(--color-text)]"
+              className="flex min-h-[44px] items-center text-sm text-[color:var(--color-text)]"
             >
               Resume
             </a>

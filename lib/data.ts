@@ -77,9 +77,17 @@ export type Project = {
   externalLabel?: string;
 };
 
+export type RepositoryVideo = {
+  src: string;
+  webm?: string;
+};
+
 export type Repository = {
   title: string;
+  /** Still image; doubles as the poster frame when video is set. */
   image: string;
+  /** Looping clip shown instead of the still, paused under reduced motion. */
+  video?: RepositoryVideo;
   description: string;
   href: string;
   tech: string[];
@@ -118,11 +126,10 @@ export const profile: Profile = {
   },
   avatar: "/avatar.jpg",
   roles: [
-    "Omar Sadek",
-    "a Gameplay Programmer",
-    "a Unity Developer",
-    "an Immersive Engineer",
-    "a Graphics Tinkerer",
+    "Gameplay Programmer",
+    "Unity Developer",
+    "Immersive Engineer",
+    "Graphics Tinkerer",
   ],
   heroSubtitle: "Let's craft something great together",
   heroChips: ["6+ Years Experience", "Gameplay Programmer", "Immersive Tech"],
@@ -402,7 +409,11 @@ export const projects: Project[] = [
 export const repositories: Repository[] = [
   {
     title: "Lexus2D Game Engine",
-    image: "/lexus2d.gif",
+    image: "/projects/lexus2d/poster.jpg",
+    video: {
+      src: "/projects/lexus2d/demo.mp4",
+      webm: "/projects/lexus2d/demo.webm",
+    },
     description:
       "A 2D game engine created as a personal project to practice data-oriented design (DOD) and sharpen my C++ programming skills. The engine includes a demo to showcase its capabilities — it's a work-in-progress used primarily for learning and experimentation.",
     href: "https://github.com/omar-sadek/Lexus2D-Engine",
@@ -418,7 +429,7 @@ export const repositories: Repository[] = [
   },
   {
     title: "Nutrition Arcade Game",
-    image: "/nutrition.png",
+    image: "/nutrition.jpg",
     description:
       "An engaging prototype for a kids' game built to foster healthy snacking habits. Designed for arcade machines, it combines fun and education to make choosing nutritious snacks an appealing adventure for children.",
     href: "https://github.com/largelabs/com.largelabs.nutrition",

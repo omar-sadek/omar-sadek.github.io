@@ -24,8 +24,15 @@ export function TypingText({
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
   const [phase, setPhase] = useState<Phase>("typing");
+  const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) setReduced(true);
+  }, []);
+
+  useEffect(() => {
+    if (reduced) return;
     if (phrases.length === 0) return;
     const target = phrases[index % phrases.length];
     let timer: ReturnType<typeof setTimeout>;
@@ -57,6 +64,7 @@ export function TypingText({
 
     return () => clearTimeout(timer);
   }, [
+    reduced,
     text,
     phase,
     index,
@@ -66,6 +74,11 @@ export function TypingText({
     holdMs,
     betweenMs,
   ]);
+
+  // Reduced motion: render the first phrase as settled text, no caret.
+  if (reduced) {
+    return <span className={className}>{phrases[0] ?? ""}</span>;
+  }
 
   return (
     <span className={className}>

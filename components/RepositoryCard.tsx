@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { Repository } from "@/lib/data";
+import { RepositoryMedia } from "./RepositoryMedia";
 import { TechList } from "./TechTag";
 import { ArrowRightIcon } from "./Icons";
 
@@ -13,13 +13,7 @@ export function RepositoryCard({ item }: Props) {
   const content = (
     <>
       <div className="relative aspect-[16/9] overflow-hidden bg-[color:var(--color-surface-2)]">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
+        <RepositoryMedia item={item} />
       </div>
       <div className="p-5 sm:p-6">
         <div className="flex items-start justify-between gap-3">

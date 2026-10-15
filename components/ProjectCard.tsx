@@ -56,7 +56,7 @@ export function ProjectCard({ project }: Props) {
           {project.description}
         </p>
         {project.slug ? (
-          <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-[color:var(--color-accent)] opacity-0 -translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+          <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-[color:var(--color-accent)] transition-transform duration-200 group-hover:translate-x-0.5">
             View details <ArrowRightIcon className="w-3.5 h-3.5" />
           </span>
         ) : null}

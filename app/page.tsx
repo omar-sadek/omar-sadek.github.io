@@ -41,17 +41,24 @@ export default function Home() {
             />
           </div>
 
-          <h1 className="font-mono text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.15]">
+          <h1 className="font-mono text-4xl sm:text-5xl md:text-6xl font-medium tracking-[-0.02em] leading-[1.15]">
             <span className="block text-[color:var(--color-text)]">Hi,</span>
             <span className="block mt-2">
               <span className="text-[color:var(--color-text)]">I&apos;m </span>
               <span className="text-[color:var(--color-accent)]">
-                <TypingText phrases={profile.roles} />
+                {profile.name}
               </span>
             </span>
           </h1>
 
-          <p className="mt-8 font-mono text-base sm:text-lg text-[color:var(--color-text-muted)] inline-flex items-center gap-2">
+          <p className="mt-5 font-mono text-lg sm:text-xl md:text-2xl text-[color:var(--color-text)]">
+            <TypingText
+              phrases={profile.roles}
+              className="text-[color:var(--color-accent)]"
+            />
+          </p>
+
+          <p className="mt-7 font-mono text-base sm:text-lg text-[color:var(--color-text-muted)] inline-flex items-center gap-2">
             <SparkleIcon className="text-[color:var(--color-accent)]" />
             {profile.heroSubtitle}
           </p>
