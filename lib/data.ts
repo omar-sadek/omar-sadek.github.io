@@ -144,7 +144,6 @@ export const profile: Profile = {
     "C#",
     "C++",
     "OpenGL",
-    "Vulkan",
     "VR",
     "Digital Twin",
   ],
@@ -152,17 +151,33 @@ export const profile: Profile = {
 
 export const experience: Experience[] = [
   {
+    company: "Engineered Alchemy",
+    role: "Senior Gameplay Programmer",
+    location: "Remote",
+    period: "SEP 2026 — PRESENT",
+    url: "https://www.engineeredalchemy.com/",
+    summary:
+      "Designing and building gameplay systems for original titles and client work at a studio spanning full game development, porting, and performance work.",
+    highlights: [
+      "Designing and developing gameplay systems from first concept through to shipped feature",
+      "Profiling and optimizing runtime performance across target platforms",
+      "Contributing to the game design process rather than only implementing finished specs",
+      "Mentoring teammates and helping coordinate how work moves across the team",
+    ],
+    tech: ["Gameplay Systems", "Optimization", "Game Design"],
+  },
+  {
     company: "Genesis Creations",
     role: "Senior Unity Developer",
     location: "Hybrid",
-    period: "FEB 2026 — PRESENT",
+    period: "FEB 2026 — SEP 2026",
     summary:
-      "Designing and shipping immersive experiences across a wide range of domains, including medical, industrial, general training, and digital twins.",
+      "Designed and shipped immersive experiences across a wide range of domains, including medical, industrial, general training, and digital twins.",
     highlights: [
-      "Building VR and immersive applications for medical, industrial, and training scenarios where the experience itself is the deliverable",
-      "Developing interactive digital-twin environments that mirror real-world systems for visualization, simulation, and operator training",
-      "Architecting Unity systems that hold up across very different project types, while keeping the codebase portable and reusable",
-      "Collaborating cross-domain with subject-matter experts to translate real workflows into believable, interactive experiences",
+      "Built VR and immersive applications for medical, industrial, and training scenarios where the experience itself is the deliverable",
+      "Developed interactive digital-twin environments that mirror real-world systems for visualization, simulation, and operator training",
+      "Architected Unity systems that hold up across very different project types, while keeping the codebase portable and reusable",
+      "Collaborated cross-domain with subject-matter experts to translate real workflows into believable, interactive experiences",
     ],
     tech: ["Unity", "C#", "VR"],
   },
@@ -456,7 +471,7 @@ export const articles: Article[] = [
 
 export const skillGroups: SkillGroup[] = [
   { label: "Languages", items: ["C#", "C++", "JavaScript"] },
-  { label: "Engines & Graphics", items: ["Unity", "OpenGL", "Vulkan"] },
+  { label: "Engines & Graphics", items: ["Unity", "OpenGL"] },
   { label: "Platforms", items: ["VR", "WebGL", "Arcade", "Digital Twin"] },
   { label: "Tooling", items: ["Git", "Plastic SCM", "Jira"] },
 ];
